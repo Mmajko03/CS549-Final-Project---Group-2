@@ -7,6 +7,6 @@
 *.toc
 *.bib
 *.DS_Store
-*..bbl
+*.bbl
 *.blg
 *.swp
