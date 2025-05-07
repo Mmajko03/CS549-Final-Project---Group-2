@@ -11,3 +11,4 @@
 *.blg
 *.swp
 *.swo
+*.ipynb_checkpoints
