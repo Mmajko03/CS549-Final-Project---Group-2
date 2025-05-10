@@ -2,15 +2,17 @@
 
 To access the code, follow this path: Materials -> titanic -> titanic-project-calculating-survival-rate.ipynb
 
-test.csv -> holds the testing data
+In the titanic folder:
 
-train.csv -> holds the training data
+  test.csv -> holds the testing data
 
-gender_submission.csv -> holds data for the genders of the passenegers
+  train.csv -> holds the training data
 
-submission.csv -> holds the data for who survived and who did not, denoted by 0's (didn't survive) and 1's (survived)
+  gender_submission.csv -> holds data for the genders of the passenegers
 
-Titanic Description.pdf -> desribes the problem as outlined by Kaggle.com
+  submission.csv -> holds the data for who survived and who did not, denoted by 0's (didn't survive) and 1's     (survived)
 
-results.png -> image showing the accuracy of the data produced from the logistic regression algorithm. The accuracy of the data was recieved from Kaggle.com when submission.csv was submitted to the competition
+  Titanic Description.pdf -> desribes the problem as outlined by Kaggle.com
+
+  results.png -> image showing the accuracy of the data produced from the logistic regression algorithm. The     accuracy of the data was recieved from Kaggle.com when submission.csv was submitted to the competition
 
