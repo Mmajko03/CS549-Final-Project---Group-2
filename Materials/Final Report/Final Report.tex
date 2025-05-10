@@ -1,13 +1,15 @@
-\documentclass[12pt]{APA}
+\documentclass{IEEE}
 
 \begin{document}
-\TITLE{Final Report - Titanic: Machine Learning from Disaster}{Final Report - Group 2}{Maeki Kashana, Miguel Melo Ochoa, Alex Hayet, Francisco Gomez}{\today}{San Diego State University}{CS549 - Machine Learning}{Professor Xin Zhang}
-\tableofcontents
+\Title{Machine Learning From Disaster}{Calculating the Survival Rate for Passengers in the Titanic}
+{Miguel Melo Ochoa}{Alex Hayet}{Francisco Gomez}{Maeki Kashana}
+{CS549 - Machine Learning}
+{Professor Xin Zhang}
+{San Diego State University}
 
-\newpage
 
 \section{Introduction and Research Problem}
-All details for this project will be provided by a competition titled "Titanic - Machine Learning from Disaster" introduced by kaggle.com (\cite{titanic}).
+All details for this project will be provided by a competition titled "Titanic - Machine Learning from Disaster" introduced by kaggle.com \cite{titanic}.
 
 This following section will provide a brief background and a statement of the problem this project is addressing.
 
@@ -34,35 +36,60 @@ To get more into specifics, this project will utilize these following .csv files
 For the train.csv file, it will contain information on who survived the sinking of the Titanic in order to train the model that was developed.
 
 For the test.csv file, it is used to see how well the model that was developed performs on unseen data. This file will be used to make predictions on who survived based on the model that was trained using train.csv.
-\newpage
+
 
 
 
 \section{Related Work}
 
+To create a solution for this project, our code needed to apply the concepts that were learned about logistic regression. To aid with this endeavor, our team utlized the problems that involved logistic regression in Assignment 1.
 
-\newpage
+In this assignment, there was a task that involved training a logistic regression model that classifies two categories of sign language images. Furthermore, through this assignment, we used the forward and backward computation implementation as a reference on implementing a logistic regression model in our own code.
 
+More specifically, our team utilized the equations present in these computations in Assignment 1 and applied them in our code to produce a solution to the Titanic problem. In the forward pass, our team utilized these equations for the activation and the cost: $A=\sigma (w^TX+b)$ and $Cost=-\frac{1}{m}\sum^m_i y^{(i)}log(a^{(i)})+(1-y^{(i)})log(1-a^{(i)})$. In addition, for the backward pass computations, our team utilized these following equations from Assignment 1:
+\LIST{
+\item $dZ=A-Y$
+\item $dw=\frac{1}{m}XdZ^T$
+\item $db=\frac{1}{m}np.sum(dZ)$
+}
+These equations were used to compute the gradients $dw \text{ and } db$ as well as the cost. Afterwards, our code then utilized these gradients and returned them in the code, much like the code in Assignment 1.
 
+Furthermore, another necessary part of our code was the sigmoid function, which we used to implement our logistic regression model. What our team used to implement the sigmoid function was the example of a sigmoid function shown in Assignment 1.
 
+In this part of the assignment, my team utilized the equation for the sigmoid function, which was $\sigma(z) = \frac{1}{1+e^{-z}}$, in order to implement our own sigmoid function to solve our Titanic problem. Additionally, our team also used the code present for the sigmoid function in Assignment 1 as a reference when implementing our own version of the sigmoid function.
+
+In addition to the sigmoid function, our team also needed to create/implement a function for the gradient descent. In our code, the gradient descent function was vital to our logistic regression model and we had used the example of a gradient descent function present in Assignment 1. In the assignment, it shows that the gradient descent function calls another function, which was $forward_backward()$ that run for $num_iters$ times. We used the same methodology in the gradient descent function present in Assignment 1 when we implemented our own gradient descent function for the logistic regression model.
+
+Furthermore, in the gradient descent function shown in Assignment 1, it was described that the parameters that were passed in, $w$ and $b$, are updated within each iteration of the gradient descent algorithm. The equation for how to update these parameters were given in Assignment 1 and our team used the same equations to update the parameters in our own gradient descent function. These equations for these parameters were as follows:
+\LIST{
+\item $w=w-\alpha$
+\item $b=b-\alpha \cdot db$
+}
+Lastly, our team implemented the function to make predictions. Like always, our team used the "predict" algorithm in Assignment 1 as a reference for the making of our own prediction algorithm. Using the example in Assignment 1, our team was able to compute the activation and convert probabilities to real predictions. This example in Assignment 1 allowed our team to effectively a prediction algorithm to predict who will survive and who will persih in the sinking of the Titanic.
+
+Finally, our team's last task was to integrate all of the functions that we have created in the code thanks to the examples shown in Assignment 1 into one single model. To do this, our team, once again, used the model present in Assignment 1 as an example. Using the example model, our team was able to create one singular model that integrates all the functions that were discussed previously and applied the model on our own train data and then evaluated on the test data. In addition, our team also calculated the evaluation metrics for our own code to solve the Titanic problem, which used the example present in Assignmnet 1 to do so.
 \section{Methodology and Technical Details}
 
 \subsection{Methodology}
 
 \subsection{Technical Details}
-
-\newpage
-
-
+In regards to the technical details of our code, the two possible outcomes are the person surviving or perishing which are represented as 1 and 0. The independent variables we ended up utilizing were Pclass, Sex, Age, SibSp, Parch, and Embarked. Some of these variables, such as sex, are given as strings so they were changed to binary to make it more convenient to use. This is determined by whether the given passenger’s Sex is male or female and whether their Embarked is Q or S. A few areas also contain nan or “not a number” that had to be replaced with the average value of that category to maintain the patterns found and avoid errors. Once those columns of the Titanic’s passenger data are filtered and modified, it is used to train the model to recognize certain patterns on what increases someone’s chances of survival. That will allow it to make accurate predictions on whether a passenger will survive.
 
 \section{Experimental Results and Analysis}
 
 \subsection{Experimental Results}
+Our experimental results for this project are shown in the graphs below. These graphs depict the survivors of the titanic according to our logistic regression model and also these graphs show how the accuracy of the model continues to drop the more iterations there are in the algorithm.
+
+\includegraphics[scale=0.535]{./piechart.png}
+\\ \includegraphics[scale=0.32]{./barchart.png}
+
+Looking at the results of the titanic experiment, the results are defined using binary classification. This means that all results will be either 0 or 1. A 0 means that the passenger did not survive the titanic sinking while a 1 indicates that the passenger did in fact survive. In the experiment there were a total of 418 passengers aboard the titanic. Out of the 418 passengers, 153 survived and 265 did not survive the tragedy. This leaves us with a 36.6\% survival rate among all of the passengers.
+
+Looking at the percentages of males and females who survived in our test data. There were a total of 152 female passengers and 266 male passengers in the experiment. Going off of our percentages of 74.2\% of female passengers surviving and 18.8\% of males surviving, this will leave us with 113 female passengers and 50 male passengers that survived the Titanic within our test data. Combining both the training data with the test data there are a total of 466 female passengers and 843 male passengers. Using our previous values there would be about 346 female survivors and 159 male survivors. This leaves us with 120 female passengers and 684 male passengers that did not survive according to the combination of the testing and training data.
 
 \subsection{Analysis}
 
-
-\newpage
+To start off the analysis of the data, looking at the cost per iterations of testing the data, we can see a clear decline in cost as iterations go on. The first iterations show costs of 0.693, 0.743, 0.730, and 0.719. These are noticeable declines for only being across 300 iterations of the data. Skipping to around 5000 iterations we see a cost of 0.488 showing us that across a larger number of iterations the cost is still declining. Going all the way to the end of the 9900 iterations we see 0.467. Comparing the declines from iterations 0-300 and the iterations from 5000-9900 we can see that over time the decline slows down by a large margin. Running more than 10000 iterations would help to see lower cost. However, the drop in cost would be so small that it is negligible and not necessary to do. The larger drops in cost show that the model is learning at a fast rate. The drops in cost become smaller as the iterations continue to go on, this shows us the model is converging on its lowest learning cost. This means that additional iterations will show very little improvement in learning cost for the model.
 
 \section{Conclusion and Future Work}
 
@@ -71,7 +98,7 @@ For the test.csv file, it is used to see how well the model that was developed p
 \subsection{Future Work}
 
 
-\newpage
+
 
 
 \section{Contributions}
@@ -98,5 +125,7 @@ For the test.csv file, it is used to see how well the model that was developed p
 \item Provided ideas on how to implement the code
 }
 
-\printbibliography
+\REF {
+\bibitem{titanic} Cubierski. W., ``Titanic - Machine Learning From Disaster,'' Kaggle.com, 2012.
+}
 \end{document}
