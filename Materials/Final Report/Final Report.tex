@@ -71,7 +71,7 @@ Finally, our team's last task was to integrate all of the functions that we have
 \section{Methodology and Technical Details}
 
 \subsection{Methodology}
-
+    What our team for the Titanic problem ended up doing was utilizing the logistic regression model as shown in Assignment 1 of this course. This is due to the scenario providing a set of given independent variables, involving classifications, and having to predict one of only two possible outcomes. The logistic regression model is optimized in finding patterns in multiple variables like these to make accurate predictions as to whether the outcome will be one thing or the other. Half of the columns provided in the Titanic passenger data happen to have correlations between a passenger having a certain value and that passenger surviving. In order to even begin, we would have to consider which of those columns would actually increase our accuracy and then eliminate the ones that are no help. Something else to consider is that some of the data is either missing or comes in a type that isn’t as easy to use. To address that, we will have to carefully fill up the empty slots with reasonable values and replace others with better types. Logistic regression makes use of the sigmoid function, processes like forward and backward propagation, and algorithms such as the gradient descent.
 \subsection{Technical Details}
 In regards to the technical details of our code, the two possible outcomes are the person surviving or perishing which are represented as 1 and 0. The independent variables we ended up utilizing were Pclass, Sex, Age, SibSp, Parch, and Embarked. Some of these variables, such as sex, are given as strings so they were changed to binary to make it more convenient to use. This is determined by whether the given passenger’s Sex is male or female and whether their Embarked is Q or S. A few areas also contain nan or “not a number” that had to be replaced with the average value of that category to maintain the patterns found and avoid errors. Once those columns of the Titanic’s passenger data are filtered and modified, it is used to train the model to recognize certain patterns on what increases someone’s chances of survival. That will allow it to make accurate predictions on whether a passenger will survive.
 
@@ -96,9 +96,11 @@ To start off the analysis of the data, looking at the cost per iterations of tes
 \subsection{Conclusion}
 In conclusion, our findings from running the logistic regression algorithm in our code showed that only a number of people were able to survive compared to the large number of people who did not. More specifically, our team has found that the majority of those who survived were predominately female, with only a small percentage of males surviving. To give more detail, that is equivalent to 113 females and 50 males surviving the Titanic disaster.  This data was quite intriguing because of the large gap between the number of female vs. male survivors. Also, to corroborate our findings, since this was a Kaggle competition to begin with, our team was able to submit the results of our code into the competition to test the accuracy of our solution/findings. As explained earlier in this report, our results were around 70\% accurate, which shows that our code effectively finds a solution for the Titanic Disaster problem.
 
-Something else our team has discovered while implementing a solution for this problem is that, when there is a high number of iterations, the accuracy of the data tends to fall, which is shown in one of the graphs above.
+Something else our team has discovered while implementing a solution for this problem is that, when there is a high number of iterations, the accuracy of the data tends to fall, which is shown in one of the graphs above. From this, our team has concluded that it is best to run this algorithm for predicting who will survive the Titanic with a number of iterations around 100 because, during this number of iterations, our algorithm tends to achieve the highest accuracy.
 \subsection{Future Work}
+For future directions of what our team could perhaps do to our algorithm, we had concluded that we need to find some solution or make some addition to our code that makes it so the logistic regression algorithm produces more accurate results. In order to check for this in the future, our team will continue submitting to the Kaggle competition webpage to ensure that the accuracy of our algorithm increases. This will make it so that our team will always try to improve the effectiveness of our algorithm. Our plan is to keep improving the code until the algorithm produces fully accurate results of who survived the Titanic.
 
+On the other hand, our team will also try to use the concepts behind logistic regression learned from Assignment 1 in this course for future projects that may require. As such, our team will utilize what we learned doing this project to find solutions for far more difficult projects. In order to do so, our team must keep learning new strategies and new ways to improve our code so that it produces 100\% accurate results so that we can be sure that our understanding and implementation of logistic algorithms is adequate enough to find solutions for other problems.
 
 
 
@@ -115,7 +117,7 @@ Something else our team has discovered while implementing a solution for this pr
 }
 \subsection{Miguel Melo Ochoa}
 \LIST{
-\item Significant Contributions to the Code & Model Submission
+\item Significant Contributions to the Code \& Model Submission
     \LIST { \item Introduced Kaggle Titanic ML Choice
             \item Implemented Logistic Regression for Kaggle Titanic ML Data
             \item Wrote Training, Testing, and Visualizing for the Logistic Regression Model}
