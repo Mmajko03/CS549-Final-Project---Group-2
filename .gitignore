@@ -12,3 +12,4 @@
 *.swp
 *.swo
 *.ipynb_checkpoints
+*.virtual_documents
