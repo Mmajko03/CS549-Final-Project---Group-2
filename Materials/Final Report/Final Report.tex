@@ -79,9 +79,14 @@ Our experimental results for this project are shown in the graphs below. These g
 
 \includegraphics[scale=0.535]{./piechart.png}
 \\ \includegraphics[scale=0.32]{./barchart.png}
+
+Looking at the results of the titanic experiment, the results are defined using binary classification. This means that all results will be either 0 or 1. A 0 means that the passenger did not survive the titanic sinking while a 1 indicates that the passenger did in fact survive. In the experiment there were a total of 418 passengers aboard the titanic. Out of the 418 passengers, 153 survived and 265 did not survive the tragedy. This leaves us with a 36.6\% survival rate among all of the passengers.
+
+Looking at the percentages of males and females who survived in our test data. There were a total of 152 female passengers and 266 male passengers in the experiment. Going off of our percentages of 74.2\% of female passengers surviving and 18.8\% of males surviving, this will leave us with 113 female passengers and 50 male passengers that survived the Titanic within our test data. Combining both the training data with the test data there are a total of 466 female passengers and 843 male passengers. Using our previous values there would be about 346 female survivors and 159 male survivors. This leaves us with 120 female passengers and 684 male passengers that did not survive according to the combination of the testing and training data.
+
 \subsection{Analysis}
 
-
+To start off the analysis of the data, looking at the cost per iterations of testing the data, we can see a clear decline in cost as iterations go on. The first iterations show costs of 0.693, 0.743, 0.730, and 0.719. These are noticeable declines for only being across 300 iterations of the data. Skipping to around 5000 iterations we see a cost of 0.488 showing us that across a larger number of iterations the cost is still declining. Going all the way to the end of the 9900 iterations we see 0.467. Comparing the declines from iterations 0-300 and the iterations from 5000-9900 we can see that over time the decline slows down by a large margin. Running more than 10000 iterations would help to see lower cost. However, the drop in cost would be so small that it is negligible and not necessary to do. The larger drops in cost show that the model is learning at a fast rate. The drops in cost become smaller as the iterations continue to go on, this shows us the model is converging on its lowest learning cost. This means that additional iterations will show very little improvement in learning cost for the model.
 
 \section{Conclusion and Future Work}
 
