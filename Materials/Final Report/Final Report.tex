@@ -50,10 +50,21 @@ More specifically, our team utilized the equations present in these computations
 \LIST{
 \item $dZ=A-Y$
 \item $dw=\frac{1}{m}XdZ^T$
-
+\item $db=\frac{1}{m}np.sum(dZ)$
 }
+These equations were used to compute the gradients $dw \text{ and } db$ as well as the cost. Afterwards, our code then utilized these gradients and returned them in the code, much like the code in Assignment 1.
 
+Furthermore, another necessary part of our code was the sigmoid function, which we used to implement our logistic regression model. What our team used to implement the sigmoid function was the example of a sigmoid function shown in Assignment 1.
 
+In this part of the assignment, my team utilized the equation for the sigmoid function, which was $\sigma(z) = \frac{1}{1+e^{-z}}$, in order to implement our own sigmoid function to solve our Titanic problem. Additionally, our team also used the code present for the sigmoid function in Assignment 1 as a reference when implementing our own version of the sigmoid function.
+
+In addition to the sigmoid function, our team also needed to create/implement a function for the gradient descent. In our code, the gradient descent function was vital to our logistic regression model and we had used the example of a gradient descent function present in Assignment 1. In the assignment, it shows that the gradient descent function calls another function, which was $forward_backward()$ that run for $num_iters$ times. We used the same methodology in the gradient descent function present in Assignment 1 when we implemented our own gradient descent function for the logistic regression model.
+
+Furthermore, in the gradient descent function shown in Assignment 1, it was described that the parameters that were passed in, $w$ and $b$, are updated within each iteration of the gradient descent algorithm. The equation for how to update these parameters were given in Assignment 1 and our team used the same equations to update the parameters in our own gradient descent function. These equations for these parameters were as follows:
+\LIST{
+\item $w=w-\alpha$
+\item $b=b-\alpha \cdot db$
+}
 \section{Methodology and Technical Details}
 
 \subsection{Methodology}
@@ -66,8 +77,8 @@ In regards to the technical details of our code, the two possible outcomes are t
 \subsection{Experimental Results}
 Our experimental results for this project are shown in the graphs below. These graphs depict the survivors of the titanic according to our logistic regression model and also these graphs show how the accuracy of the model continues to drop the more iterations there are in the algorithm.
 
-\includegraphics[scale=0.4]{./piechart.png}
-\\ \includegraphics[scale=0.4]{./barchart.png}
+\includegraphics[scale=0.535]{./piechart.png}
+\\ \includegraphics[scale=0.32]{./barchart.png}
 \subsection{Analysis}
 
 
